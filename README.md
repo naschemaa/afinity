@@ -1,6 +1,6 @@
 # afinity
 ## What's afnity?
-Afinity is an upcomming software that will make you able to manage your Software "Product Keys".
+afinity is an upcomming software that will make you able to manage your Software "Product Keys".
 It will help you to filtrer them by Sotware name, version and even more.
 
 ## When will the source code be available on GitHub?
