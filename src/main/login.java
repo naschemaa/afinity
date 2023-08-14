@@ -55,7 +55,7 @@ public class login extends JPanel
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
  
-        if (OK.equals(cmd)) { //Process the password.
+        if (OK.equals(cmd)) {
             char[] input = passwordField.getPassword();
             if (isPasswordCorrect(input)) {
             	Main JFrame = new Main();
@@ -89,7 +89,6 @@ public class login extends JPanel
             isCorrect = Arrays.equals (input, correctPassword);
         }
  
-        //Zero out the password.
         Arrays.fill(correctPassword,'0');
  
         return isCorrect;
@@ -108,20 +107,17 @@ public class login extends JPanel
 
 
  
-        //Create and set up the content pane.
         final login newContentPane = new login(frame);
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
-        //Make sure the focus goes to the right component
-        //whenever the frame is initially given the focus.
+
         frame.addWindowListener(new WindowAdapter() {
             public void windowActivated(WindowEvent e) {
                 newContentPane.resetFocus();
             }
         });
  
-        //Display the window.
         frame.pack();
         frame.setVisible(true);
     }
