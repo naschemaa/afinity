@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
  
-/* PasswordDemo.java requires no other files. */
  
 public class login extends JPanel 
                           implements ActionListener {
@@ -13,15 +12,13 @@ public class login extends JPanel
     private static String HELP = "help";
 	protected static Object frame;
  
-    private JFrame controllingFrame; //needed for dialogs
+    private JFrame controllingFrame;
     private JPasswordField passwordField;
  
     public login(JFrame f) {
-        //Use the default FlowLayout.
         controllingFrame = f;
 
  
-        //Create everything.
         passwordField = new JPasswordField(10);
         passwordField.setActionCommand(OK);
         passwordField.addActionListener(this);
@@ -31,7 +28,6 @@ public class login extends JPanel
  
         JComponent buttonPane = createButtonPanel();
  
-        //Lay out everything.
         JPanel textPane = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         textPane.add(label);
         textPane.add(passwordField);
@@ -65,8 +61,7 @@ public class login extends JPanel
             	Main JFrame = new Main();
             	JFrame.setVsible(true);
             	
-                // JOptionPane.showMessageDialog(controllingFrame,
-                  //  "Success! You typed the right password.");
+
             } else {
                 JOptionPane.showMessageDialog(controllingFrame,
                     "Invalid password. Try again.",
@@ -74,22 +69,16 @@ public class login extends JPanel
                     JOptionPane.ERROR_MESSAGE);
             }
  
-            //Zero out the possible password, for security.
             Arrays.fill(input, '0');
  
             passwordField.selectAll();
             resetFocus();
-        } else { //The user has asked for help.
+        } else { 
         	LoginHelp JFrame = new LoginHelp();
         	JFrame.setVisible(true);
         }
     }
  
-    /**
-     * Checks the passed-in array against the correct password.
-     * After this method returns, you should invoke eraseArray
-     * on the passed-in array.
-     */
     private static boolean isPasswordCorrect(char[] input) {
         boolean isCorrect = true;
         char[] correctPassword = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
@@ -106,20 +95,18 @@ public class login extends JPanel
         return isCorrect;
     }
  
-    //Must be called from the event dispatch thread.
     protected void resetFocus() {
         passwordField.requestFocusInWindow();
     }
  
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event dispatch thread.
-     */
+
     private static void createAndShowGUI() {
-        //Create and set up the window.
         JFrame frame = new JFrame("PasswordDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setTitle("Login | afinity");
+	frame.setIconImage(Toolkit.getDefaultToolkit().getImage(login.class.getResource("/media/afinity.png")));
+
+
  
         //Create and set up the content pane.
         final login newContentPane = new login(frame);
