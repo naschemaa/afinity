@@ -19,9 +19,7 @@ public class LoginHelp {
 
 	private static JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,17 +32,9 @@ public class LoginHelp {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	public LoginHelp() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 
 			frame = new JFrame();
