@@ -20,9 +20,7 @@ public class About {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,16 +34,12 @@ public class About {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public About() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
