@@ -11,6 +11,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+
+import misc.About;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,15 +35,18 @@ public class LoginHelp {
 			}
 		});
 	}
+
+
 	public LoginHelp() {
 		initialize();
 	}
+
 	private void initialize() {
 
 			frame = new JFrame();
 			frame.setIconImage(Toolkit.getDefaultToolkit().getImage(login.class.getResource("/media/afinity.png")));
 			frame.setTitle("Login | afinity");
-			frame.setBounds(100, 100, 522, 202);
+			frame.setBounds(100, 100, 522, 221);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.getContentPane().setLayout(null);
 			
@@ -80,8 +86,24 @@ public class LoginHelp {
 					frame.dispose();
 				}
 			});
-			btnNewButton.setBounds(419, 142, 89, 23);
+			btnNewButton.setBounds(419, 161, 89, 23);
 			frame.getContentPane().add(btnNewButton);
+			
+			JButton btnAbout = new JButton("About");
+			btnAbout.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					About JFrame = new About();
+					JFrame.setVisible(true);
+					frame.dispose();
+				}
+			});
+			btnAbout.setBounds(322, 161, 89, 23);
+			frame.getContentPane().add(btnAbout);
+			
+			JLabel lblNewLabel_1_1_2_2 = new JLabel("Make sure to change the default password when adding product keys.");
+			lblNewLabel_1_1_2_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+			lblNewLabel_1_1_2_2.setBounds(10, 119, 488, 31);
+			frame.getContentPane().add(lblNewLabel_1_1_2_2);
 		
 	}
 
