@@ -1,11 +1,16 @@
 package main;
  
 import javax.swing.*;
+
+import misc.Notification;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+
  
  
+@SuppressWarnings("serial")
 public class login extends JPanel 
                           implements ActionListener {
     private static String OK = "ok";
@@ -52,7 +57,8 @@ public class login extends JPanel
         return p;
     }
  
-    public void actionPerformed(ActionEvent e) {
+    @SuppressWarnings("static-access")
+	public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
  
         if (OK.equals(cmd)) {
@@ -60,6 +66,12 @@ public class login extends JPanel
             if (isPasswordCorrect(input)) {
             	Main JFrame = new Main();
             	JFrame.setVsible(true);
+            	Notification Class = new Notification();
+            	try {
+					Class.displayTray();
+				} catch (AWTException e1) {
+					e1.printStackTrace();
+				}
             	
 
             } else {
@@ -104,11 +116,12 @@ public class login extends JPanel
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setTitle("Login | afinity");
 	frame.setIconImage(Toolkit.getDefaultToolkit().getImage(login.class.getResource("/media/afinity.png")));
+	frame.setResizable(false);
 
 
  
         final login newContentPane = new login(frame);
-        newContentPane.setOpaque(true); //content panes must be opaque
+        newContentPane.setOpaque(true);
         frame.setContentPane(newContentPane);
  
 
@@ -123,14 +136,14 @@ public class login extends JPanel
     }
  
     public static void main(String[] args) {
-        //Schedule a job for the event dispatch thread:
-        //creating and showing this application's GUI.
+
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                //Turn off metal's use of bold fonts
         UIManager.put("swing.boldMetal", Boolean.FALSE);
         createAndShowGUI();
             }
         });
     }
+    
+
 }
